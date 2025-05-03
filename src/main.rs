@@ -1,29 +1,21 @@
-use std::io;
-use rand::Rng;
-use std::cmp::Ordering;
-
 fn main() {
-    println!("Guess the number!");
+    let x: i32 = -10; // int
+    let x: u32 = 10; // unsigned int 
 
-    let secret_number = rand::thread_rng().gen_range(1..=100);
+    let x: f32 = 3.14; // float 
 
-    loop {
-        let mut guess = String::new();
-        println!("Input your guess");
-        io::stdin().read_line(&mut guess).expect("Failed to read line");
-
-        let guess: u32 = match guess.trim().parse() {
-            Ok(num) => num,
-            Err(_) => continue,
-        };
-        
-        match guess.cmp(&secret_number) {
-            Ordering::Less => println!("Too small!"), 
-            Ordering::Greater => println!("Too big!"),
-            Ordering::Equal => {
-                println!("You Won!");
-                break;
-            }
-        }
+    let is_rain: bool = true; // boolean 
+    match is_rain {
+        true => println!("rain"),
+        false => println!("sunny")
     }
-}
+
+    // tupple
+    let tup: (i32, f32, String) = (100, 3.14, "wkwk".to_string()); 
+    println!("{} {} {}", tup.0, tup.1, tup.2); 
+
+    // Array 
+    let months = ["January", "February", "March", "April", "May", "June", "July",
+              "August", "September", "October", "November", "December"];
+    println!("{} {} {} {}", months[0], months[1], months[2], months[3]);
+}   
